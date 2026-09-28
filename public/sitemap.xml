@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.farmcontrolsystem.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules</loc><priority>0.9</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/parcelles</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/stocks-intrants</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/fertilisation</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/phytosanitaire</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/irrigation</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/performance</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/modules/aide-decision</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/demos</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/temoignages</loc><priority>0.7</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/a-propos</loc><priority>0.8</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/our-vision</loc><priority>0.7</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/contact</loc><priority>0.9</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/mentions-legales</loc><priority>0.3</priority></url>
+  <url><loc>https://www.farmcontrolsystem.com/confidentialite</loc><priority>0.3</priority></url>
+</urlset>

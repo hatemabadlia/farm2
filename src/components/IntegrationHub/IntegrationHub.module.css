@@ -1,0 +1,367 @@
+.section {
+  padding: 100px 6vw 108px;
+  background:
+    radial-gradient(760px 420px at 50% 0%, var(--fcs-green-soft) 0%, transparent 70%),
+    var(--fcs-bg);
+  overflow: hidden;
+}
+
+.head {
+  max-width: 760px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--fcs-font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fcs-secondary);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(26px, 4.2vw, 40px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--fcs-text-muted);
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 56px;
+  max-width: var(--fcs-container);
+  margin: 0 auto;
+}
+
+/* ===================== Schema orbital ===================== */
+.orbit {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--fcs-border);
+  stroke-width: 0.3;
+  stroke-dasharray: 1.4 1.8;
+  opacity: 0;
+  transform-origin: 50% 50%;
+  transition: opacity 0.8s ease 0.2s;
+}
+
+.orbitOn .ring {
+  opacity: 1;
+  animation: ringSpin 90s linear infinite;
+}
+
+@keyframes ringSpin {
+  to { transform: rotate(360deg); }
+}
+
+.wire {
+  stroke: var(--fcs-border);
+  stroke-width: 0.35;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.orbitOn .wire {
+  opacity: 1;
+  /* impulsion qui descend du module vers le noyau */
+  stroke-dasharray: 3 47;
+  animation: pulseDown 3.2s linear infinite;
+}
+
+@keyframes pulseDown {
+  from { stroke-dashoffset: 50; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.wireOn {
+  stroke: var(--fcs-primary);
+  stroke-width: 0.7;
+}
+
+/* ---------- noyau ---------- */
+.core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 31%;
+  aspect-ratio: 1;
+  padding: 10px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--fcs-brand) 0%, var(--fcs-brand-dark) 100%);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 16px 40px rgba(27, 60, 34, 0.32);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.22, 0.68, 0.36, 1),
+    opacity 0.7s ease, box-shadow 0.3s ease;
+  z-index: 3;
+}
+
+.orbitOn .core {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.core:hover {
+  box-shadow: 0 20px 50px rgba(27, 60, 34, 0.42);
+}
+
+.corePulse {
+  position: absolute;
+  inset: -6%;
+  border-radius: 50%;
+  border: 1.5px solid var(--fcs-accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.orbitOn .corePulse {
+  animation: corePulse 3.2s ease-out infinite;
+}
+
+@keyframes corePulse {
+  0%   { transform: scale(0.92); opacity: 0.55; }
+  70%  { transform: scale(1.22); opacity: 0; }
+  100% { transform: scale(1.22); opacity: 0; }
+}
+
+.coreNumber {
+  font-family: var(--fcs-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--fcs-accent);
+}
+
+.coreLabel {
+  font-family: var(--fcs-font-heading);
+  font-size: clamp(12px, 1.5vw, 15px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- modules satellites ---------- */
+.node {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 23%;
+  padding: 12px 8px;
+  border-radius: var(--fcs-radius-md);
+  background: var(--fcs-surface);
+  border: 1px solid var(--fcs-border);
+  box-shadow: var(--fcs-shadow-sm);
+  text-align: center;
+  text-decoration: none;
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.22, 0.68, 0.36, 1),
+    opacity 0.55s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  z-index: 2;
+}
+
+.orbitOn .node {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.node:hover,
+.nodeOn {
+  border-color: var(--fcs-primary);
+  box-shadow: var(--fcs-shadow-md);
+}
+
+.orbitOn .node:hover,
+.orbitOn .nodeOn {
+  transform: translate(-50%, -50%) scale(1.07);
+}
+
+.nodeNumber {
+  font-family: var(--fcs-font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--fcs-accent);
+}
+
+.nodeLabel {
+  font-family: var(--fcs-font-heading);
+  font-size: clamp(10px, 1.15vw, 12.5px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fcs-ink);
+}
+
+/* ===================== Panneau lateral ===================== */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.detail {
+  min-height: 132px;
+  padding: 24px 24px 26px;
+  border-radius: var(--fcs-radius-lg);
+  border: 1px solid var(--fcs-border);
+  background: var(--fcs-surface);
+  box-shadow: var(--fcs-shadow-sm);
+}
+
+.detailNumber {
+  display: block;
+  font-family: var(--fcs-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--fcs-accent);
+  margin-bottom: 6px;
+}
+
+.detailTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.detailText {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--fcs-text-muted);
+  margin: 0;
+}
+
+.detailHint {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--fcs-text-muted);
+  font-style: italic;
+}
+
+/* ---------- chaine de valeur ---------- */
+.flowLabel {
+  display: block;
+  font-family: var(--fcs-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--fcs-secondary);
+  margin-bottom: 16px;
+}
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.stepDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--fcs-green-soft);
+  color: var(--fcs-primary);
+  font-family: var(--fcs-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stepLabel {
+  display: block;
+  font-family: var(--fcs-font-heading);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--fcs-ink);
+}
+
+.stepText {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--fcs-text-muted);
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .orbit { max-width: 460px; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 68px 22px 76px; }
+  .head { margin-bottom: 40px; }
+  .orbit { max-width: 340px; }
+  .node { width: 27%; padding: 9px 6px; }
+  .detail { min-height: 120px; padding: 20px; }
+}
+
+/* Mouvement reduit : le schema reste lisible, sans rien qui tourne. */
+@media (prefers-reduced-motion: reduce) {
+  .orbitOn .ring,
+  .orbitOn .wire,
+  .orbitOn .corePulse {
+    animation: none;
+  }
+
+  .orbitOn .wire { stroke-dasharray: none; }
+  .orbitOn .corePulse { opacity: 0; }
+}

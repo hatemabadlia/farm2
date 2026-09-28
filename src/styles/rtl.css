@@ -1,0 +1,117 @@
+/* =========================================================
+   Support RTL (arabe)
+   ---------------------------------------------------------
+   LanguageContext pose `dir="rtl"` sur <html> quand lang === 'ar'.
+   Les regles ci-dessous rattrapent les proprietes directionnelles
+   ecrites en left/right dans les CSS modules.
+
+   Pour tout NOUVEAU code, privilegier directement les proprietes
+   logiques (margin-inline, padding-inline, inset-inline, text-align:
+   start/end) : elles se retournent toutes seules, sans override.
+   ========================================================= */
+
+[dir='rtl'] {
+  text-align: right;
+}
+
+/* --- Typographie arabe --------------------------------------------------
+   Poppins/Inter n'ont pas de glyphes arabes : on bascule sur une pile
+   systeme lisible, avec une hauteur de ligne un peu plus genereuse. */
+[dir='rtl'] body,
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4,
+[dir='rtl'] button,
+[dir='rtl'] input,
+[dir='rtl'] select,
+[dir='rtl'] textarea {
+  font-family: 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', system-ui, sans-serif;
+}
+
+[dir='rtl'] p,
+[dir='rtl'] li {
+  line-height: 1.9;
+}
+
+/* --- Listes ------------------------------------------------------------- */
+[dir='rtl'] ul,
+[dir='rtl'] ol {
+  padding-right: 0;
+}
+
+/* --- Retournement des icones directionnelles ---------------------------
+   Fleches, chevrons "suivant/precedent" : leur sens doit s'inverser.
+   Les icones non directionnelles (mail, telephone, reseaux) ne bougent pas. */
+[dir='rtl'] [class*='chevron'] svg,
+[dir='rtl'] [class*='Chevron'] svg,
+[dir='rtl'] [class*='footerLink'] svg,
+[dir='rtl'] [class*='back'] > svg,
+[dir='rtl'] [class*='cardMore'] svg {
+  transform: scaleX(-1);
+}
+
+/* La fleche "retour en haut" est verticale : elle ne doit PAS etre retournee. */
+[dir='rtl'] [class*='backToTop'] svg {
+  transform: none;
+}
+
+/* --- Formulaires -------------------------------------------------------- */
+[dir='rtl'] input,
+[dir='rtl'] textarea,
+[dir='rtl'] select {
+  text-align: right;
+}
+
+/* le chevron du <select> doit passer a gauche */
+[dir='rtl'] select {
+  background-position: left 6px center;
+}
+
+[dir='rtl'] [class*='consent'] {
+  flex-direction: row;
+}
+
+/* --- Alignements de texte laisses en dur ------------------------------- */
+[dir='rtl'] [class*='introText'],
+[dir='rtl'] [class*='column'],
+[dir='rtl'] [class*='brand'] {
+  text-align: right;
+}
+
+/* les blocs volontairement centres le restent */
+[dir='rtl'] [class*='intro'],
+[dir='rtl'] [class*='cta'],
+[dir='rtl'] [class*='empty'],
+[dir='rtl'] [class*='successBox'],
+[dir='rtl'] [class*='subtitle'] {
+  text-align: center;
+}
+
+/* --- Navbar ------------------------------------------------------------- */
+[dir='rtl'] [class*='dropdownMenu'] {
+  left: auto;
+  right: 0;
+}
+
+/* Le menu mobile glisse depuis le cote oppose. */
+[dir='rtl'] [class*='linksOpen'] {
+  left: 0;
+  right: auto;
+}
+
+/* --- Footer ------------------------------------------------------------- */
+[dir='rtl'] [class*='arcLarge'],
+[dir='rtl'] [class*='arcSmall'] {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] [class*='backToTop'] {
+  right: auto;
+  left: 24px;
+}
+
+/* --- Home : le halo et le degrade du hero suivent la lecture ------------ */
+[dir='rtl'] [class*='heroOverlay'] {
+  transform: scaleX(-1);
+}

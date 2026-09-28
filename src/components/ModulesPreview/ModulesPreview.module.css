@@ -1,0 +1,201 @@
+.section {
+  padding: 40px 6vw 100px;
+  background: var(--fcs-bg);
+}
+
+.head {
+  max-width: 720px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--fcs-font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fcs-secondary);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(26px, 4.2vw, 40px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--fcs-text-muted);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+  max-width: var(--fcs-container);
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 280px;
+  padding: 26px 24px 24px;
+  border: 1px solid var(--fcs-border);
+  border-radius: var(--fcs-radius-lg);
+  box-shadow: var(--fcs-shadow-sm);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+/* le contenu passe au-dessus de l'image et du voile */
+.card > :not(.cardImage):not(.cardVeil) {
+  position: relative;
+  z-index: 2;
+}
+
+/* liseré vert qui se remplit au survol */
+.card::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  z-index: 2;
+  background: linear-gradient(to bottom, var(--fcs-primary), var(--fcs-accent));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.32s ease;
+}
+
+.card:hover::before,
+.card:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--fcs-shadow-md);
+  border-color: var(--fcs-primary);
+}
+
+.number {
+  font-family: var(--fcs-font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--fcs-lime);
+}
+
+.cardTitle {
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.32;
+  color: #fff;
+  margin: 0;
+}
+
+.cardText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Tuile "tous les modules" */
+.allCard {
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 280px;
+  border-style: dashed;
+  background: var(--fcs-green-soft);
+  color: var(--fcs-primary);
+  text-align: center;
+}
+
+.allCard::before {
+  display: none;
+}
+
+.allLabel {
+  font-family: var(--fcs-font-heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.allCard svg {
+  transition: transform 0.25s ease;
+}
+
+.allCard:hover svg {
+  transform: translateX(5px);
+}
+
+[dir='rtl'] .allCard svg {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .allCard:hover svg {
+  transform: scaleX(-1) translateX(5px);
+}
+
+@media (max-width: 520px) {
+  .section { padding: 24px 22px 76px; }
+  .head { margin-bottom: 38px; }
+  .card { padding: 24px 20px; }
+}
+
+/* ===== Visuel de fond ===== */
+.cardImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.card:hover .cardImage,
+.card:focus-visible .cardImage {
+  transform: scale(1.09);
+}
+
+.cardVeil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(8, 24, 14, 0.94) 0%,
+    rgba(8, 24, 14, 0.8) 40%,
+    rgba(8, 24, 14, 0.52) 70%,
+    rgba(8, 24, 14, 0.4) 100%
+  );
+  transition: background 0.35s ease;
+}
+
+.card:hover .cardVeil {
+  background: linear-gradient(
+    to top,
+    rgba(10, 40, 22, 0.95) 0%,
+    rgba(10, 40, 22, 0.85) 42%,
+    rgba(8, 24, 14, 0.6) 74%,
+    rgba(8, 24, 14, 0.45) 100%
+  );
+}

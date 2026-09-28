@@ -1,0 +1,36 @@
+.page {
+  padding: 80px 6vw 100px;
+  background: var(--fcs-bg);
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(28px, 5vw, 42px);
+  margin: 0 0 8px;
+}
+
+.updated {
+  margin: 0 0 40px;
+  font-size: 14px;
+  color: var(--fcs-text-muted);
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.heading {
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: var(--fcs-primary);
+}
+
+.paragraph {
+  margin: 0 0 12px;
+  color: var(--fcs-text);
+  line-height: 1.8;
+}

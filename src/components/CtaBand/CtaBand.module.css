@@ -1,0 +1,103 @@
+.band {
+  position: relative;
+  margin: 0 6vw 96px;
+  padding: 58px 40px;
+  border-radius: var(--fcs-radius-lg);
+  overflow: hidden;
+  text-align: center;
+}
+
+.solid {
+  background: linear-gradient(135deg, var(--fcs-brand) 0%, var(--fcs-brand-dark) 100%);
+  color: #fff;
+}
+
+/* halo discret, purement decoratif */
+.solid::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  inset-inline-end: -120px;
+  top: -180px;
+  border-radius: 50%;
+  background: rgba(164, 209, 82, 0.22);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(22px, 3.6vw, 32px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 32px;
+  border-radius: var(--fcs-radius-pill);
+  background: var(--fcs-lime);
+  color: #1f4b2b;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button svg {
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: #b4de62;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover svg {
+  transform: translateX(4px);
+}
+
+.button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+[dir='rtl'] .button svg {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .button:hover svg {
+  transform: scaleX(-1) translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .band {
+    margin: 0 20px 68px;
+    padding: 40px 24px;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}

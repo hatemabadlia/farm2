@@ -1,0 +1,63 @@
+/* =========================================================
+   Animations de revelation au defilement
+   ---------------------------------------------------------
+   Pilote par le hook useReveal : l'element part decale puis
+   se remet en place quand il entre dans le viewport.
+
+   Regle de securite : sous `prefers-reduced-motion`, tout est
+   remis a l'etat final immediatement (voir variables.css, qui
+   neutralise deja les durees) et le hook revele d'emblee.
+   ========================================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 0.68, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 0.68, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal='up'] { transform: translateY(26px); }
+[data-reveal='left'] { transform: translateX(-30px); }
+[data-reveal='right'] { transform: translateX(30px); }
+[data-reveal='scale'] { transform: scale(0.96); }
+
+[data-reveal][data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Decalage en cascade pour les grilles : chaque enfant part
+   legerement apres le precedent. */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.68, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.68, 0.36, 1);
+}
+
+[data-stagger][data-revealed='true'] > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-stagger][data-revealed='true'] > *:nth-child(1) { transition-delay: 0.04s; }
+[data-stagger][data-revealed='true'] > *:nth-child(2) { transition-delay: 0.10s; }
+[data-stagger][data-revealed='true'] > *:nth-child(3) { transition-delay: 0.16s; }
+[data-stagger][data-revealed='true'] > *:nth-child(4) { transition-delay: 0.22s; }
+[data-stagger][data-revealed='true'] > *:nth-child(5) { transition-delay: 0.28s; }
+[data-stagger][data-revealed='true'] > *:nth-child(6) { transition-delay: 0.34s; }
+[data-stagger][data-revealed='true'] > *:nth-child(7) { transition-delay: 0.40s; }
+[data-stagger][data-revealed='true'] > *:nth-child(8) { transition-delay: 0.46s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

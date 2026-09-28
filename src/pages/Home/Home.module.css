@@ -1,0 +1,342 @@
+/* ===== Hero : video plein ecran + texte en overlay ===== */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(88vh, 760px);
+  padding: 80px 6vw;
+  overflow: hidden;
+  isolation: isolate;
+  /* Fond visible immediatement, avant meme que la video demarre. */
+  background: linear-gradient(135deg, #0d2415 0%, rgba(23, 64, 36, 0.95) 60%, #102d1b 100%),
+    #102d1b;
+}
+
+.heroImage {
+  position: absolute;
+  inset: -2%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center 42%;
+  transform: scale(1.03);
+}
+
+/* Travelling lent : donne au hero le souffle d'une video, sans le poids. */
+.heroImagePan {
+  animation: heroPan 32s ease-in-out infinite alternate;
+}
+
+@keyframes heroPan {
+  from { transform: scale(1.03) translate3d(0, 0, 0); }
+  to   { transform: scale(1.11) translate3d(-1.6%, -1.2%, 0); }
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+      100deg,
+      rgba(8, 28, 16, 0.92) 0%,
+      rgba(15, 50, 28, 0.72) 42%,
+      rgba(15, 50, 28, 0.15) 78%,
+      rgba(8, 20, 12, 0.05) 100%
+    ),
+    linear-gradient(to bottom, rgba(8, 25, 15, 0.35), rgba(8, 25, 15, 0.1));
+}
+
+/* Halo vert atmospherique */
+.hero::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 650px;
+  height: 650px;
+  inset-inline-start: -250px;
+  top: -200px;
+  border-radius: 50%;
+  background: rgba(164, 209, 82, 0.22);
+  filter: blur(110px);
+  pointer-events: none;
+  animation: heroGlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  from { opacity: 0.45; transform: translate(0, 0); }
+  to   { opacity: 0.8;  transform: translate(80px, 50px); }
+}
+
+/* Fondu vers la section suivante */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 140px;
+  z-index: 1;
+  background: linear-gradient(to bottom, transparent, var(--fcs-bg));
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  color: #fff;
+  animation: heroContentIn 0.9s ease-out both;
+}
+
+@keyframes heroContentIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  margin-bottom: 22px;
+  border-radius: var(--fcs-radius-pill);
+  background: rgba(164, 209, 82, 0.16);
+  border: 1px solid rgba(164, 209, 82, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--fcs-lime);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.heroHeading {
+  font-family: var(--fcs-font-heading);
+  font-size: clamp(28px, 4.4vw, 50px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 30px;
+  text-wrap: balance;
+}
+
+.heroHeading::selection {
+  background: var(--fcs-lime);
+  color: var(--fcs-brand-dark);
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 30px;
+  border: 1px solid transparent;
+  border-radius: var(--fcs-radius-pill);
+  font-family: var(--fcs-font-body);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.primary {
+  background: var(--fcs-lime);
+  color: var(--fcs-brand-dark);
+  box-shadow: 0 14px 35px rgba(164, 209, 82, 0.3);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  background: #b4de62;
+  box-shadow: 0 18px 42px rgba(164, 209, 82, 0.42);
+}
+
+.primary:active {
+  transform: translateY(-1px);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ===== Section "Pourquoi" ===== */
+.whySection {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 104px 6vw 88px;
+  text-align: center;
+  background: radial-gradient(
+    520px 260px at 50% 0%,
+    var(--fcs-green-soft) 0%,
+    transparent 72%
+  );
+}
+
+.whyEyebrow {
+  display: inline-block;
+  font-family: var(--fcs-font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fcs-secondary);
+  margin-bottom: 12px;
+}
+
+.whyTitle {
+  font-family: var(--fcs-font-heading);
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--fcs-primary);
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+
+.whyText {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--fcs-text-muted);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero {
+    min-height: 78vh;
+    padding: 72px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 74vh;
+    padding: 60px 22px;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .primary,
+  .secondary {
+    flex: 1 1 100%;
+    padding: 14px 22px;
+  }
+
+  .whySection {
+    padding: 68px 22px 60px;
+  }
+
+  .whyText {
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+}
+
+
+/* ===== Points cles sous les boutons du hero ===== */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.highlight svg {
+  color: var(--fcs-lime);
+  flex-shrink: 0;
+}
+
+/* ===== Indicateur de defilement ===== */
+.scrollHint {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  inset-inline-start: 50%;
+  width: 26px;
+  height: 42px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--fcs-radius-pill);
+  pointer-events: none;
+}
+
+.scrollHint::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 3px;
+  height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--fcs-lime);
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0%   { opacity: 0; transform: translateY(0); }
+  35%  { opacity: 1; }
+  70%  { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+@media (max-width: 900px) {
+  .scrollHint { display: none; }
+}
+
+@media (max-width: 600px) {
+  .highlights {
+    gap: 9px 18px;
+    margin-top: 26px;
+  }
+
+  .highlight {
+    font-size: 13.5px;
+  }
+}

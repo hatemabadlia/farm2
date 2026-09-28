@@ -1,0 +1,138 @@
+.page {
+  padding: 88px 6vw 110px;
+  background: var(--fcs-bg);
+}
+
+.intro {
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--fcs-font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fcs-secondary);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--fcs-text-muted);
+  margin: 0;
+}
+
+/* ===== Grille de temoignages ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: var(--fcs-container);
+  margin: 0 auto 80px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 30px 28px;
+  border: 1px solid var(--fcs-border);
+  border-radius: var(--fcs-radius-lg);
+  background: var(--fcs-surface);
+  box-shadow: var(--fcs-shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fcs-shadow-md);
+}
+
+.quoteMark {
+  color: var(--fcs-accent);
+}
+
+.quote {
+  flex: 1;
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--fcs-text);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--fcs-border);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--fcs-green-soft);
+  color: var(--fcs-primary);
+  font-family: var(--fcs-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.authorName {
+  display: block;
+  font-family: var(--fcs-font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fcs-ink);
+}
+
+.authorRole {
+  display: block;
+  font-size: 13.5px;
+  color: var(--fcs-text-muted);
+}
+
+/* ===== Etat vide (aucun temoignage publie) ===== */
+.empty {
+  max-width: 620px;
+  margin: 0 auto 80px;
+  padding: 44px 32px;
+  border: 1px dashed var(--fcs-border);
+  border-radius: var(--fcs-radius-lg);
+  background: var(--fcs-surface-alt);
+  text-align: center;
+}
+
+.emptyText {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--fcs-text-muted);
+}
+
+/* ===== CTA ===== */
+@media (max-width: 600px) {
+  .page { padding: 60px 22px 76px; }
+  .intro { margin-bottom: 44px; }
+  .grid, .empty { margin-bottom: 56px; }
+  .card { padding: 24px 22px; }
+}
