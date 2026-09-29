@@ -42,10 +42,10 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const TwitterIcon = () => (
+const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-    <path d="M4 4l7.3 9.6L4.4 20h2l5.9-5.4 4.4 5.4H20l-7.6-9.9L19.6 4h-2l-5.4 4.9L7.9 4H4Zm2.9 1.5h1.8l9.4 13H15.3l-8.4-13Z" />
-  </svg>
+  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm5.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+</svg>
 );
 
 const LinkedInIcon = () => (
@@ -62,7 +62,7 @@ const YoutubeIcon = () => (
 
 const SOCIAL_ICONS = [
   { key: 'facebook', Icon: FacebookIcon, label: 'Facebook' },
-  { key: 'twitter', Icon: TwitterIcon, label: 'Twitter / X' },
+  { key: 'twitter', Icon: InstagramIcon, label: 'Instagrame' },
   { key: 'linkedin', Icon: LinkedInIcon, label: 'LinkedIn' },
   { key: 'youtube', Icon: YoutubeIcon, label: 'YouTube' },
 ];

@@ -19,7 +19,7 @@ export default function ModulesPreview({ title }) {
       <div className={styles.head} data-reveal="up" data-revealed={revealed}>
         <span className={styles.eyebrow}>Modules</span>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.subtitle}>{t.subtitle}</p>
+       
       </div>
 
       <div className={styles.grid} data-stagger data-revealed={revealed}>
@@ -34,9 +34,9 @@ export default function ModulesPreview({ title }) {
             />
             <span className={styles.cardVeil} aria-hidden="true" />
 
-            <span className={styles.number} aria-hidden="true">{item.n}</span>
+            
             <h3 className={styles.cardTitle}>{item.title}</h3>
-            <p className={styles.cardText}>{item.text}</p>
+          
           </Link>
         ))}
 

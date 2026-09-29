@@ -6,6 +6,7 @@ import styles from './Modules.module.css';
 import useReveal from '../../hooks/useReveal';
 import moduleImages from '../../assets/images/modules';
 import Seo from '../../components/Seo/Seo';
+import farmeVideo from '../../assets/videos/farme.mp4';
 
 export default function Modules() {
   const { lang } = useLanguage();
@@ -33,13 +34,23 @@ export default function Modules() {
 
   return (
     <section className={styles.section} ref={sectionRef}>
-      <Seo title={t.title} description={t.subtitle} />
-      <div className={styles.intro} data-reveal="up" data-revealed={visible}>
+      
+      <div className={styles.intro}>
+         <div className={styles.introText}>
+        <div title={t.title}  />
         <span className={styles.eyebrow}>Modules</span>
         <h1 className={styles.title}>{t.title}</h1>
-        <p className={styles.subtitle}>{t.subtitle}</p>
-      </div>
 
+        </div>
+   <div className={styles.videoWrap}>
+          <video autoPlay loop muted playsInline className={styles.video}>
+            <source src={farmeVideo} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+ <div className={styles.arrowWrap}>
+        <span className={styles.arrowCircle}>↓</span>
+      </div>
       <div className={`${styles.grid} ${visible ? styles.visible : ''}`}>
         {items.map((item) => (
           <Link key={item.slug} to={`/modules/${item.slug}`} className={styles.card}>
@@ -53,9 +64,8 @@ export default function Modules() {
             />
             <span className={styles.cardVeil} aria-hidden="true" />
 
-            <span className={styles.cardNumber} aria-hidden="true">{item.n}</span>
             <h2 className={styles.cardTitle}>{item.title}</h2>
-            <p className={styles.cardText}>{item.text}</p>
+            
             <span className={styles.cardMore}>
               {t.readMore}
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">

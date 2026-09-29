@@ -13,7 +13,7 @@ const dict = {
     finalCtaTitle: 'Passons de la donnée à la décision, ensemble.',
     finalCtaText:
       "Échangeons sur vos parcelles et vos objectifs : nous vous montrons concrètement ce que Farm Control System change au quotidien.",
-    seoTitle: "Le pilotage intelligent de votre exploitation agricole",
+    seoTitle: "Farm Control System",
     seoDescription:
       "Farm Control System centralise vos données agronomiques, techniques et économiques pour optimiser vos interventions, maîtriser vos coûts et améliorer la performance de votre exploitation.",
     badge: 'Plateforme AgriTech',
@@ -74,7 +74,7 @@ const dict = {
     finalCtaTitle: "Let's turn data into decisions, together.",
     finalCtaText:
       'Let us talk about your fields and your goals: we will show you exactly what Farm Control System changes day to day.',
-    seoTitle: 'Smart management for your farm',
+    seoTitle: 'Farm Control System',
     seoDescription:
       'Farm Control System centralizes your agronomic, technical and economic data to optimize your operations, control costs and improve farm performance.',
     // DRAFT - a valider par le directeur avant mise en ligne
@@ -136,7 +136,7 @@ const dict = {
     finalCtaTitle: 'لننتقل من المعطيات إلى القرار، معاً.',
     finalCtaText:
       'لنتحدث عن قطعكم وأهدافكم: سنريكم بشكل ملموس ما يغيّره Farm Control System في عملكم اليومي.',
-    seoTitle: 'القيادة الذكية لاستغلاليتكم الفلاحية',
+    seoTitle: 'Farm Control System',
     seoDescription:
       'يقوم Farm Control System بتجميع معطياتكم الزراعية والتقنية والاقتصادية لتحسين تدخلاتكم والتحكم في تكاليفكم ورفع أداء استغلاليتكم.',
     // DRAFT - a valider par le directeur avant mise en ligne

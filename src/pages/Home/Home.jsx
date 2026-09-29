@@ -9,6 +9,7 @@ import IntegrationHub from '../../components/IntegrationHub/IntegrationHub';
 import Audience from '../../components/Audience/Audience';
 import Advantages from '../../components/Advantage/Advantage';
 import CtaBand from '../../components/CtaBand/CtaBand';
+import farmeVideo from '../../assets/videos/farme.mp4';
 
 // Image fixe plutot que video : la video institutionnelle porte du texte
 // francais incruste (et un filigrane) dans quasiment chaque image, qui entrait
@@ -32,13 +33,18 @@ export default function Home() {
 
       {/* ---------- Hero ---------- */}
       <section className={styles.hero}>
-        <div
-          className={`${styles.heroImage} ${skipMotion ? '' : styles.heroImagePan}`}
-          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-          aria-hidden="true"
-        />
-        <div className={styles.heroOverlay} />
-
+        <video
+    className={styles.heroVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source src={farmeVideo} type="video/mp4" />
+  </video>
+  <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <span className={styles.badge}>{t.badge}</span>
           <h1 className={styles.heroHeading}>{t.heroHeading}</h1>
@@ -85,10 +91,10 @@ export default function Home() {
       <ModulesPreview title={t.modulesTitle} />
 
       {/* ---------- Schema : les modules alimentent l'aide a la decision ---------- */}
-      <IntegrationHub />
+      {/*<IntegrationHub />*/}
 
       {/* ---------- A qui ca s'adresse ---------- */}
-      <Audience />
+      {/* <Audience /> */}
 
       {/* ---------- Avantages (cartes retournables) ---------- */}
       <Advantages t={t} />

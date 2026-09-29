@@ -13,16 +13,16 @@
 
 export const CONTACT = {
   email: 'farmcontrolsystem@gmail.com',
-  phoneDisplay: '+213 557 79 69 46',
-  phoneHref: 'tel:+213557796946',
+  phoneDisplay: '+213 551 63 46 10',
+  phoneHref: 'tel:+213551634610',
 };
 
 // Reseaux sociaux : laisser '' tant que le compte n'existe pas,
 // l'icone correspondante n'est alors pas affichee.
 export const SOCIAL_LINKS = {
-  facebook: '',
-  twitter: '',
-  linkedin: '',
+  facebook: 'https://www.facebook.com/share/19Hnwm41k2/',
+  twitter: 'https://www.instagram.com/farmcontrolsystem?stkn=MWpudWJoMXpkbDhuYQ==',
+  linkedin: 'https://www.linkedin.com/company/farm-control-system/',
   youtube: '',
 };
 

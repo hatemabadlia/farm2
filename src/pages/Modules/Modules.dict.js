@@ -33,13 +33,13 @@ const dict = {
         title: 'Gestion des parcelles',
         text: "Base de données parcellaire, géolocalisation, historique des cultures et indicateurs de performance.",
         intro:
-          "La parcelle est l'unité de base de toute décision agronomique. Ce module en constitue le référentiel : chaque parcelle y est décrite, localisée et suivie campagne après campagne, de sorte que l'historique des cultures, des interventions et des résultats reste consultable en un seul endroit.",
+          'Une vision numérique et intelligente de votre exploitation. Cartographiez vos parcelles, structurez leurs données et suivez leur évolution à travers un historique complet et des indicateurs de performance adaptés',
         features: [
-          'Créer et délimiter vos parcelles, avec leur surface et leur géolocalisation',
-          'Rattacher à chaque parcelle sa culture, sa variété et son itinéraire technique',
-          "Consulter l'historique pluriannuel des cultures et des interventions",
-          'Suivre les rotations et les précédents culturaux',
-          'Comparer les indicateurs de performance entre parcelles et entre campagnes',
+          'Cartographie et géolocalisation des parcelles',
+          'Historique cultural détaillé',
+          'Fiche technique par parcelle',
+          'Indicateurs techniques et économiques',
+          'Export des données et rapports',
         ],
         benefits: [
           "Une vision claire de l'ensemble de votre assolement",
@@ -53,13 +53,14 @@ const dict = {
         title: 'Gestion des stocks & intrants',
         text: "Suivi des stocks, mouvements d'intrants, alertes de seuil et traçabilité complète.",
         intro:
-          "Semences, engrais, produits phytosanitaires, carburant : les intrants représentent une part majeure des charges d'une exploitation. Ce module suit leurs entrées, leurs sorties et leurs affectations, pour savoir à tout moment ce qui reste en stock et où chaque quantité a été utilisée.",
+          'Maîtrisez vos stocks et vos approvisionnements grâce au suivi en temps réel des intrants, de leurs consommations. Utilisez un filtrage multicritère pour trouver rapidement les produits adaptés, anticipez vos besoins et évitez les ruptures tout en contrôlant vos coûts',
         features: [
-          'Enregistrer les entrées de stock (achats, livraisons) et les sorties',
-          "Affecter chaque sortie d'intrant à une parcelle et à une intervention",
-          'Définir des seuils d\'alerte pour anticiper les ruptures',
-          'Suivre la valorisation du stock et son évolution dans la campagne',
-          'Retrouver la traçabilité complète d\'un lot, de la réception à l\'épandage',
+          'Suivi des stocks en temps réel',
+          'Gestion des mouvements et des consommations',
+          'Consultation des prix et des caractéristiques des produits',
+          'Filtrage multicritère des intrants',
+          'Planification des achats et des approvisionnements',
+          'Alertes automatiques en cas de stock critique',
         ],
         benefits: [
           'Moins de ruptures en pleine campagne et moins d\'achats dans l\'urgence',
@@ -73,13 +74,14 @@ const dict = {
         title: 'Gestion de la fertilisation',
         text: 'Plans de fertilisation, suivi des apports, analyses de sol et recommandations.',
         intro:
-          "Fertiliser au plus juste suppose de partir des besoins réels de la culture et de l'état du sol, puis de vérifier ce qui a effectivement été apporté. Ce module relie ces trois étapes : analyses, plan prévisionnel et apports réalisés.",
+          'Identifiez les besoins nutritifs de vos cultures, planifiez vos apports, suivez les applications et ajustez vos programmes de fertilisation grâce à des recommandations adaptées à chaque parcelle.',
         features: [
-          'Enregistrer et conserver les analyses de sol de chaque parcelle',
-          'Construire un plan de fertilisation prévisionnel par parcelle et par culture',
-          'Saisir les apports réalisés et les comparer au plan',
-          'Suivre les unités fertilisantes apportées (N, P, K) sur la campagne',
-          'Conserver un historique des pratiques de fertilisation sur plusieurs années',
+          'Identification des besoins nutritifs',
+          'Planification des apports',
+          'Suivi des apports et des interventions',
+          'Répartition des unités fertilisantes',
+          'Suivi technico-économique',
+          'Système de guidage et d’aide à la décision',
         ],
         benefits: [
           "Des apports ajustés aux besoins, sans sur-fertilisation coûteuse",
@@ -93,13 +95,14 @@ const dict = {
         title: 'Protection & suivi phytosanitaire',
         text: 'Surveillance des ravageurs, gestion des traitements et suivi des interventions.',
         intro:
-          "La protection des cultures repose sur l'observation autant que sur le traitement. Ce module permet de consigner ce qui est constaté au champ, de planifier les interventions qui en découlent et de garder la trace précise de chaque application.",
+          'Surveillez l’état sanitaire de vos parcelles, identifiez les risques, planifiez vos traitements et évaluez leur efficacité grâce à un suivi phytosanitaire complet et centralisé.',
         features: [
-          'Consigner les observations de terrain : ravageurs, maladies, adventices',
-          'Planifier les interventions phytosanitaires par parcelle',
-          'Enregistrer chaque traitement : produit, dose, date, parcelle concernée',
-          "Suivre les interventions réalisées et celles qui restent à faire",
-          'Conserver un registre complet des applications par campagne',
+          'Identification des risques phytosanitaires',
+          'Suivi de l’état sanitaire des cultures',
+          'Planification des interventions',
+          'Cahier phytosanitaire intégré',
+          'Évaluation de l’efficacité des traitements',
+          'Suivi des coûts et recommandations',
         ],
         benefits: [
           'Des décisions de traitement fondées sur des observations datées',
@@ -113,13 +116,14 @@ const dict = {
         title: "Pilotage de l'irrigation",
         text: "Planification de l'irrigation, suivi des consommations et optimisation des ressources en eau.",
         intro:
-          "L'eau est une ressource contrainte et un poste de charge à part entière. Ce module permet de planifier les tours d'eau, d'enregistrer les volumes réellement apportés et de suivre la consommation parcelle par parcelle sur l'ensemble de la campagne.",
+          'Optimisez chaque apport d’eau pour répondre aux besoins réels de vos cultures. Planifiez les irrigations, ajustez les apports selon les conditions de la parcelle et suivez les consommations afin d’améliorer l’efficience de l’eau et la performance technico-économique.',
         features: [
-          'Planifier les apports d\'eau par parcelle et par culture',
-          'Enregistrer les irrigations réalisées : volume, durée, date',
-          'Suivre la consommation cumulée sur la campagne',
-          'Comparer les consommations entre parcelles et entre cultures',
-          "Rattacher le coût de l'eau et de l'énergie à chaque parcelle",
+          'Planification mensuel optimisée',
+          'Ajustement et correction stratégique',
+          'Traçabilité des apports hydriques',
+          'Analyse des performances et aide à la décision',
+          'Bilan technico-Économique',
+          'Déclanchement ciblé des interventions',
         ],
         benefits: [
           'Une consommation d\'eau mesurée plutôt qu\'estimée',
@@ -133,13 +137,14 @@ const dict = {
         title: 'Performance technico-économique',
         text: 'Analyse des coûts, marges, rendements et indicateurs de rentabilité par parcelle.',
         intro:
-          "Toutes les données saisies dans les autres modules convergent ici. Ce module rapproche les charges engagées et les produits obtenus pour calculer, parcelle par parcelle et culture par culture, ce que chaque hectare a réellement coûté et rapporté.",
+          'Mesurez, analysez et améliorez la performance de votre exploitation en suivant les coûts de production, les rendements, les marges et la rentabilité de chaque parcelle et de chaque culture afin de comparer les résultats, identifier les écarts, anticiper les performances et prendre des décisions fondées sur des indicateurs fiables.',
         features: [
-          'Consolider les charges par parcelle : intrants, eau, travaux, main-d\'œuvre',
-          'Enregistrer les rendements et les produits de la récolte',
-          'Calculer la marge brute par parcelle et par culture',
-          'Comparer les performances entre cultures, entre parcelles et entre campagnes',
-          'Visualiser les indicateurs clés sur des tableaux de bord de synthèse',
+          'Suivi des coûts de production',
+          'Analyse des rendements',
+          'Calcul des marges et de la rentabilité',
+          'Comparaison des performances',
+          'Budgets prévisionnels et simulations',
+          'Tableaux de bord et indicateurs clés',
         ],
         benefits: [
           'Savoir quelles cultures et quelles parcelles sont réellement rentables',
@@ -153,13 +158,14 @@ const dict = {
         title: "Système d'aide à la décision",
         text: 'Recommandations intelligentes, alertes et tableaux de bord pour des décisions optimales.',
         intro:
-          "Disposer de données ne suffit pas : encore faut-il qu'elles remontent au bon moment. Ce module exploite l'ensemble des informations de l'exploitation pour signaler ce qui mérite attention et éclairer les décisions à prendre.",
+          'Un système de guidage intelligent qui transforme les données de votre exploitation en recommandations, alertes et indicateurs pour vous accompagner dans chaque décision agronomique.',
         features: [
-          'Recevoir des alertes sur les situations qui demandent une intervention',
-          'Consulter des tableaux de bord de synthèse à l\'échelle de l\'exploitation',
-          'Identifier les écarts entre parcelles, entre cultures et entre campagnes',
-          'Appuyer les arbitrages sur des indicateurs comparables et datés',
-          'Suivre l\'évolution des principaux indicateurs au fil de la campagne',
+          'Collecte et intégration intelligente des données',
+          'Analyse avancée et modélisation',
+          'Alertes intelligentes et recommandations personnalisées',
+          'Système de guidage et correction automatisée',
+          'Visualisation graphique et outils d’analyses',
+          'Rapports automatisés et exportables',
         ],
         benefits: [
           'Les points d\'attention remontent au lieu d\'être cherchés',
@@ -189,7 +195,7 @@ const dict = {
         title: 'Field management',
         text: 'Field database, geolocation, crop history and performance indicators.',
         intro:
-          'The field is the basic unit of every agronomic decision. This module is its reference record: each field is described, located and tracked season after season, so the history of crops, operations and results stays available in one place.',
+          "A digital and intelligent vision of your farm. Map your plots, structure their data, and monitor their development through a complete history and performance indicators tailored to your needs.",
         features: [
           'Create and outline your fields, with their area and geolocation',
           'Attach each field its crop, variety and technical itinerary',
